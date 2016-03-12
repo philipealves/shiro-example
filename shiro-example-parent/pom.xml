@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.pws</groupId>
+	<artifactId>shiro-example-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Apache Shiro Application Example</name>
+	<description>Apache Shiro Application Example</description>
+
+	<modules>
+		<module>shiro-example</module>
+		<module>shiro-rest</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<scope>test</scope>
+				<version>${junit.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<properties>
+		<!-- logback -->
+		<logback.version>1.1.3</logback.version>
+
+		<!-- hibernate -->
+		<hibernate.version>5.1.0.Final</hibernate.version>
+		<hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
+		<javax.expression.language.version>2.2.4</javax.expression.language.version>
+		
+		<version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
+		<version.war.plugin>2.5</version.war.plugin>
+		<resteasy.version>3.0.16.Final</resteasy.version>
+		<resteasy.jaxrs.version>3.0.12.Final</resteasy.jaxrs.version>
+
+		<!-- shiro -->
+		<shiro.version>1.2.4</shiro.version>
+
+		<!-- aspectj -->
+		<aspectj.version>1.8.7</aspectj.version>
+
+		<!-- apache -->
+		<apache.commons.lang.version>3.4</apache.commons.lang.version>
+		<apache.commons.collections.version>4.1</apache.commons.collections.version>
+		<apache.commons.beanutils.version>1.9.2</apache.commons.beanutils.version>
+		<apache.commons.io.version>2.4</apache.commons.io.version>
+		<apache.commons.codec.version>1.10</apache.commons.codec.version>
+		<apache.velocity.version>1.7</apache.velocity.version>
+		<apache.commons.email.version>1.4</apache.commons.email.version>
+
+		<!-- google -->
+		<google.guava.version>18.0</google.guava.version>
+
+		<!-- json -->
+		<flexjson.version>3.3</flexjson.version>
+		<gson.version>2.5</gson.version>
+
+		<!-- Web Resource Optimizer for Java -->
+		<wro4j.version>1.7.9</wro4j.version>
+
+		<!-- junit -->
+		<junit.version>4.12</junit.version>
+		<hamcrest.version>2.0.0.0</hamcrest.version>
+		<jsonpath.version>2.1.0</jsonpath.version>
+
+		<!-- mockito -->
+		<mockito.version>2.0.31-beta</mockito.version>
+
+		<scala.library.version>2.10.4</scala.library.version>
+
+		<!-- maven -->
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.archetype.packaging>2.4</maven.archetype.packaging>
+		<maven.archetype.plugin>2.4</maven.archetype.plugin>
+		<maven.war.plugin>2.6</maven.war.plugin>
+
+	</properties>
+
+</project>
