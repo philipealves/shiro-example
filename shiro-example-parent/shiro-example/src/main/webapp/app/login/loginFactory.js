@@ -8,8 +8,10 @@ shiroApp.factory('LoginService', function($http, $cookies) {
 	}
 
 	service.isAuthenticated = function() {
-		var sessionId = $cookies.get('JSESSIONID');
-		return sessionId;
+		var sessionId = $cookies.get('username');
+		if (sessionId == undefined)
+			return false;
+		return true;
 	}
 
 	service.getCurrentUser = function() {

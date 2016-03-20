@@ -16,6 +16,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
+import br.com.pws.shiro.dto.ErrorResponse;
 import br.com.pws.shiro.dto.UserDto;
 
 @Path("/authentication")
@@ -39,24 +40,24 @@ public class AuthenticationController {
             try {
                 currentUser.login(token);
             } catch (UnknownAccountException uae) {
-                return Response.status(401).build();
+                return Response.status(401).entity(new ErrorResponse("ERROR", "Usuário ou senha inválido.")).build();
             } catch (IncorrectCredentialsException ice) {
-                return Response.status(401).build();
+                return Response.status(401).entity(new ErrorResponse("ERROR", "Usuário ou senha inválido.")).build();
             } catch (LockedAccountException lae) {
-                return Response.status(401).build();
+                return Response.status(401).entity(new ErrorResponse("ERROR", "Usuuário bloqueado.")).build();
             } catch (AuthenticationException ae) {
-                return Response.status(401).build();
+                return Response.status(401).entity(new ErrorResponse("ERROR", "Erro ao efetuar login.")).build();
             }
         }
 
         return Response.status(200).entity(user).build();
     }
-    
+
     @POST
     @Path("/isLogged")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean isLogged(UserDto user) {
+    public boolean isLogged() {
         Subject currentUser = SecurityUtils.getSubject();
 
         if (currentUser.isAuthenticated())
@@ -64,7 +65,7 @@ public class AuthenticationController {
 
         return false;
     }
-    
+
     @POST
     @Path("/currentUser")
     @Produces(MediaType.APPLICATION_JSON)
@@ -77,10 +78,10 @@ public class AuthenticationController {
             dto.setUsername(currentUser.getPrincipal().toString());
             return Response.status(200).entity(dto).build();
         }
-        
+
         return Response.status(200).build();
     }
-    
+
     @POST
     @Path("/logout")
     @Produces(MediaType.APPLICATION_JSON)
@@ -94,5 +95,5 @@ public class AuthenticationController {
         }
         return Response.status(200).build();
     }
-    
+
 }
